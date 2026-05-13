@@ -61,12 +61,15 @@ message = (
 )
 
 # Send Telegram message
-requests.post(
+response = requests.post(
     f"https://api.telegram.org/bot{BOT_TOKEN}/sendMessage",
     data={
         "chat_id": CHAT_ID,
         "text": message
     }
 )
+
+print(response.status_code)
+print(response.text)
 
 print(message)
